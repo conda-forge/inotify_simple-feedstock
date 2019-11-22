@@ -1,5 +1,5 @@
 {% set name = "inotify_simple" %}
-{% set version = "1.1.8" %}
+{% set version = "1.2.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: fc2c10dd73278a1027d0663f2db51240af5946390f363a154361406ebdddd8dd
+  sha256: f5a7dd817122f64196da8ba9b24ec285181215a9f7503791e718b3cb342eaee6
 
 build:
   number: 0
