@@ -1,44 +1,41 @@
 {% set name = "inotify_simple" %}
-{% set version = "1.3.2" %}
+{% set version = "1.3.3" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 5be8a720232619d392210e0b1c0dca279eb5bc34f38a52beb590c33e9bb7885f
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 304cf46a89256ba1106ee4ff08608d193cef21daae263da5519aa25fd93b77d2
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
-  
+
 requirements:
   host:
     - pip
     - python
     - enum34  # [py<34]
-    
   run:
     - python
     - enum34  # [py<34]
-    
 test:
   requires:
     - enum34  # [py<34]
-    
   imports:
     - inotify_simple
 
 about:
-  home: "https://github.com/chrisjbillington/inotify_simple"
-  license: "BSD-2-Clause"
-  license_family: "BSD"
-  license_file: "LICENSE"
-  summary: "A simple wrapper around inotify. No fancy bells and whistles, just a literal wrapper with ctypes. Only 127 lines of code!"
-  doc_url: "https://pypi.org/project/inotify_simple/"
-  dev_url: "https://github.com/chrisjbillington/inotify_simple"
+  home: https://github.com/chrisjbillington/inotify_simple
+  license: BSD-2-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: A simple wrapper around inotify. No fancy bells and whistles, just a literal wrapper with ctypes. Only 127 lines of code!
+  doc_url: https://pypi.org/project/inotify_simple/
+  dev_url: https://github.com/chrisjbillington/inotify_simple
 
 extra:
   recipe-maintainers:
