@@ -10,7 +10,7 @@ source:
   sha256: 8440ffe49c4ae81a8df57c1ae1eb4b6bfa7acb830099bfb3e305b383005cc128
 
 build:
-  number: 2
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
@@ -21,13 +21,10 @@ requirements:
   host:
     - pip
     - python
-    - enum34  # [py<34]
   run:
     - python
-    - enum34  # [py<34]
 test:
   requires:
-    - enum34  # [py<34]
   imports:
     - inotify_simple
 
@@ -45,3 +42,4 @@ extra:
     - mwilson8
     - rluria14
     - benhuff
+    - Tobias-Fischer
