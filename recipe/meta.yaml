@@ -10,9 +10,9 @@ source:
   sha256: 8440ffe49c4ae81a8df57c1ae1eb4b6bfa7acb830099bfb3e305b383005cc128
 
 build:
+  noarch: python
   number: 1
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win]
 
 requirements:
   build:
@@ -23,6 +23,7 @@ requirements:
     - python
   run:
     - python
+    - __unix
 test:
   requires:
   imports:
