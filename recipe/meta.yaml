@@ -10,9 +10,9 @@ source:
   sha256: 8440ffe49c4ae81a8df57c1ae1eb4b6bfa7acb830099bfb3e305b383005cc128
 
 build:
-  number: 1
+  noarch: python
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win]
 
 requirements:
   build:
@@ -20,14 +20,12 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
-    - python
-    - enum34  # [py<34]
+    - python >=3.5
   run:
-    - python
-    - enum34  # [py<34]
+    - python >=3.5
+    - __unix
 test:
   requires:
-    - enum34  # [py<34]
   imports:
     - inotify_simple
 
@@ -45,3 +43,4 @@ extra:
     - mwilson8
     - rluria14
     - benhuff
+    - Tobias-Fischer
