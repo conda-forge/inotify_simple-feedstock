@@ -1,0 +1,52 @@
+schema_version: 1
+
+context:
+  version: "2.0.1"
+
+package:
+  name: inotify_simple
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/i/inotify_simple/inotify_simple-${{ version }}.tar.gz
+  sha256: f010bbbd8283bd71a9f4eb2de94765804ede24bd47320b0e6ef4136e541cdc2c
+
+build:
+  noarch: python
+  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - __unix
+
+tests:
+  - python:
+      imports:
+        - inotify_simple
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  homepage: https://github.com/chrisjbillington/inotify_simple
+  repository: https://github.com/chrisjbillington/inotify_simple
+  documentation: https://inotify-simple.readthedocs.io
+  license: BSD-2-Clause
+  license_file: LICENSE
+  summary: A simple wrapper around inotify
+
+extra:
+  recipe-maintainers:
+    - mxr-conda
+    - mwilson8
+    - rluria14
+    - benhuff
+    - Tobias-Fischer
+    - wolfv
