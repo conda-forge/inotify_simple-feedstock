@@ -1,26 +1,27 @@
-About inotify_simple
-====================
+About inotify_simple-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/inotify_simple-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/chrisjbillington/inotify_simple
 
 Package license: BSD-2-Clause
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/inotify_simple-feedstock/blob/master/LICENSE.txt)
-
-Summary: A simple wrapper around inotify. No fancy bells and whistles, just a literal wrapper with ctypes. Only 127 lines of code!
+Summary: A simple wrapper around inotify
 
 Development: https://github.com/chrisjbillington/inotify_simple
 
-Documentation: https://pypi.org/project/inotify_simple/
+Documentation: https://inotify-simple.readthedocs.io/
 
 Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8237&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/inotify_simple-feedstock?branchName=master">
+      <a href="https://github.com/conda-forge/inotify_simple-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/inotify_simple-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
     </td>
   </tr>
@@ -31,7 +32,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-inotify_simple-green.svg)](https://anaconda.org/conda-forge/inotify_simple) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/inotify_simple.svg)](https://anaconda.org/conda-forge/inotify_simple) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/inotify_simple.svg)](https://anaconda.org/conda-forge/inotify_simple) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/inotify_simple.svg)](https://anaconda.org/conda-forge/inotify_simple) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-inotify__simple-green.svg)](https://anaconda.org/conda-forge/inotify_simple) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/inotify_simple.svg)](https://anaconda.org/conda-forge/inotify_simple) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/inotify_simple.svg)](https://anaconda.org/conda-forge/inotify_simple) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/inotify_simple.svg)](https://anaconda.org/conda-forge/inotify_simple) |
 
 Installing inotify_simple
 =========================
@@ -40,25 +41,96 @@ Installing `inotify_simple` from the `conda-forge` channel can be achieved by ad
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `inotify_simple` can be installed with:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install inotify_simple
 ```
 
-It is possible to list all of the versions of `inotify_simple` available on your platform with:
+</details>
+
+<details>
+<summary>With mamba</summary>
+
+```
+mamba install inotify_simple
+```
+
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add inotify_simple
+# for installing globally
+pixi global install inotify_simple
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `inotify_simple` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search inotify_simple --channel conda-forge
 ```
 
+</details>
+
+<details>
+<summary>With mamba</summary>
+
+```
+mamba search inotify_simple --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search inotify_simple --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
+
+```
+# Search all versions available on your platform:
+mamba repoquery search inotify_simple --channel conda-forge
+
+# List packages depending on `inotify_simple`:
+mamba repoquery whoneeds inotify_simple --channel conda-forge
+
+# List dependencies of `inotify_simple`:
+mamba repoquery depends inotify_simple --channel conda-forge
+```
+
+</details>
+
 
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -68,17 +140,19 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -105,14 +179,14 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/inotify_simple-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers
@@ -121,5 +195,7 @@ Feedstock Maintainers
 * [@Tobias-Fischer](https://github.com/Tobias-Fischer/)
 * [@benhuff](https://github.com/benhuff/)
 * [@mwilson8](https://github.com/mwilson8/)
+* [@mxr-conda](https://github.com/mxr-conda/)
 * [@rluria14](https://github.com/rluria14/)
+* [@wolfv](https://github.com/wolfv/)
 
